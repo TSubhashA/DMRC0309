@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <include layout="@layout/header_file"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginBottom="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin_left_right"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="Your Available Card Balance"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/TextSize"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text=":"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:textSize="@dimen/TextSize" />
+
+
+        <TextView
+            android:id="@+id/aCardBal_activity_second"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="0.95"
+            android:textSize="@dimen/TextSize"
+            android:textColor="@color/textColor">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/okButton"
+        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin_left_right"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/btnOk"
+            android:textColor="@color/textColor"
+            android:layout_margin="@dimen/marginTop"
+            android:textSize="35sp"
+            android:text="Welcome to the Feeder Bus"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/insufficientText"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin_left_right"
+        android:orientation="vertical"
+        >
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/marginTop"
+            android:text="@string/insufficient_balance_please_topup_card_and_then_avail_the_services"
+            android:textSize="@dimen/TextSize"
+            android:textColor="@color/textColor">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:layout_gravity="bottom">
+
+        <include layout="@layout/footer"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

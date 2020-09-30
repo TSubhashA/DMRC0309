@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">DMRC</string>
+    <string name="welcome_to_drmc_feeder_bus_service">Welcome to DMRC Feeder bus Service</string>
+    <string name="nextgen_telesolutions_pvt_ltd_2020">© NextGen Telesolutions Pvt. Ltd. 2020</string>
+    <string name="insufficient_balance_please_topup_card_and_then_avail_the_services">Insufficient balance, please topup card and then avail the services</string>
+
+    <string name="Route_prompt">Choose a Route</string>
+
+    <string-array name="Routes">
+    <item>Route 1 Dwarka - Janakpuri</item>
+    <item>Route 2 Janakpuri - Dwarka</item>
+    <item>Route 3 Noida - Kapashera</item>
+    <item>Route 4 Kapashera - Noida</item>
+    </string-array>
+</resources>

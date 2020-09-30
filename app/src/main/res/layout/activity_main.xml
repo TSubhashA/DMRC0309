@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
+        <include layout="@layout/header_file"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin_left_right"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="Date"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/TextSize"
+             />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text=":"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:textSize="@dimen/TextSize" />
+
+
+        <TextView
+            android:id="@+id/date_activity_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="0.95"
+            android:textSize="@dimen/TextSize"
+            android:textColor="@color/textColor">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin_left_right"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="Time"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/TextSize"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text=":"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:textSize="@dimen/TextSize" />
+
+
+        <TextClock
+            android:id="@+id/time_activity_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="0.95"
+            android:textSize="@dimen/TextSize"
+            android:format12Hour="hh:mm:ss"
+            android:textColor="@color/textColor"
+           >
+
+        </TextClock>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin_left_right"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="Current Stop"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/TextSize"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text=":"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:textSize="@dimen/TextSize" />
+
+
+        <TextView
+            android:id="@+id/cStop_activity_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Dwarka"
+            android:layout_weight="0.95"
+            android:textSize="@dimen/TextSize"
+            android:textColor="@color/textColor">
+
+        </TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/margin_left_right"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.95"
+            android:text="Next Stop"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/TextSize"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:text=":"
+            android:textColor="@color/textColor"
+            android:gravity="center"
+            android:textSize="@dimen/TextSize" />
+
+
+        <TextView
+            android:id="@+id/nStop_activity_main"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Noida"
+            android:layout_weight="0.95"
+            android:textSize="@dimen/TextSize"
+            android:textColor="@color/textColor">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:layout_gravity="bottom">
+
+    <include layout="@layout/footer"
+        />
+    </LinearLayout>
+
+
+</LinearLayout>
