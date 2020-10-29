@@ -12,10 +12,16 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.newcapec.czpos.auxlib.utils.MyUtils;
 import com.nextgentele.dmrc.R;
 import com.nextgentele.dmrc.db.MyDb;
 import com.nextgentele.dmrc.db.Users;
+import com.nextgentele.dmrc.response.ResponseReceived;
 import com.nextgentele.dmrc.util.UartClass;
+
+import java.io.ByteArrayInputStream;
+
+import static com.nextgentele.dmrc.response.ResponseReceived.pszBuf;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -25,6 +31,8 @@ public class SecondActivity extends AppCompatActivity {
     Users users;
     MyDb myDb;
     UartClass uartClass;
+
+    boolean ifEnd;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -56,35 +64,56 @@ public class SecondActivity extends AppCompatActivity {
             }else {
                 uartClass.init();
                 uartClass.uart_open();
-//                uartClass.uart_start();
                 uartClass.uart_send("GO11");
                 Log.i("SecondActivity","Data inserted");
             }
         }}
 
-//        ok.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent=new Intent(SecondActivity.this,MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-
-
+        String res="PASS";
         new Handler().postDelayed(new Runnable() {
-
             @Override
             public void run() {
-                // TODO Auto-generated method stub
+                String res="Pass";
+                if (ResponseReceived.pszBuf== res.getBytes()){
                 Intent intent=new Intent(SecondActivity.this,MainActivity.class);
                 startActivity(intent);
-                finish();
+                finish();}else
+                {}
 
             }
-        }, 5000);
+        }, 4000);
 
-
+        Runnable runnable1 = new Runnable() {
+            @Override
+            public void run(){
+                int count = 0;
+                ifEnd = false;
+                while (!ifEnd) {
+                    try{
+                        Thread.sleep(100);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if( pszBuf == null ) {
+                        continue;
+                    }
+                    count ++;
+                    try
+                    {
+                        String recvStr = MyUtils.bytes2HexStr1(pszBuf);
+                        if( recvStr.length() > 0 && recvStr.equals(res)){
+                            Intent intent=new Intent(SecondActivity.this,MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                            Log.i( "recv : "+count," :"+recvStr );
+                        }
+                    } catch(NullPointerException e)	{
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        new Thread(runnable1).start();
 
     }
 }

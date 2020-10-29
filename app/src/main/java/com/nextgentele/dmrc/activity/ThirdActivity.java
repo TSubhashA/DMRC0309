@@ -68,12 +68,12 @@ public class ThirdActivity extends AppCompatActivity {
             double bal = users.getUserBal() - charge;
             finalBalance.setText("INR " + bal);
 
-//            int result = myDb.deleteUser(users.getUserName());
-//            Log.i("Delete","User");
-//            if (result > 0) {
-//                Log.i("ThirdActivity", "Deleted Data");
-//                Toast.makeText(ThirdActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-//            }
+            int result = myDb.deleteUser(users.getUserName());
+            Log.i("Delete","User");
+            if (result > 0) {
+                Log.i("ThirdActivity", "Deleted Data");
+                Toast.makeText(ThirdActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
+            }
 
         }
 

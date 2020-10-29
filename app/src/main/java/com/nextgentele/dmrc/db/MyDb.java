@@ -66,47 +66,51 @@ public class MyDb extends SQLiteOpenHelper {
 
     }
 
-    public Users getUser(String userName1){
+    public Users getUser(String userName1) {
 
         Users users;
-         String userName="";
-         float userBalance=0;
-         long dateTimeIn=0;
+        String userName = "";
+        float userBalance = 0;
+        long dateTimeIn = 0;
 
-         String latIn="";
-         String longIn="";
-         long dateTimeOut=0;
+        String latIn = "";
+        String longIn = "";
+        long dateTimeOut = 0;
 
-         String latOut="";
-         String longOut="";
-         long fare=0;
+        String latOut = "";
+        String longOut = "";
+        long fare = 0;
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM "+ TABLE_NAME +" WHERE "+ COLUMN_NAME +" = ?", new String[] {userName1});
-        if (c.moveToFirst()){
-            do {
-                // Passing values
-                userName = c.getString(1);
-                userBalance = c.getFloat(2);
-                dateTimeIn = c.getLong(3);
-                latIn = c.getString(4);
-                longIn = c.getString(5);
-                dateTimeOut = c.getLong(6);
-                latOut = c.getString(7);
-                longOut = c.getString(8);
-                fare = c.getLong(9);
+        Cursor c = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_NAME + " = ?", new String[]{userName1});
+        if (c != null) {
+            if (c.moveToFirst()) {
+                do {
+                    // Passing values
+                    userName = c.getString(1);
+                    userBalance = c.getFloat(2);
+                    dateTimeIn = c.getLong(3);
+                    latIn = c.getString(4);
+                    longIn = c.getString(5);
+                    dateTimeOut = c.getLong(6);
+                    latOut = c.getString(7);
+                    longOut = c.getString(8);
+                    fare = c.getLong(9);
 
-                // Do something Here with values
-            } while(c.moveToNext());
+                    // Do something Here with values
+                } while (c.moveToNext());
+            }
+            c.close();
+            db.close();
+            users = new Users(userName, userBalance, dateTimeIn, dateTimeOut, latIn, longIn, latOut, longOut, fare);
+
+            return users;
+        } else {
+            return null;
         }
-        c.close();
-        db.close();
-
-        users=new Users(userName,userBalance,dateTimeIn,dateTimeOut,latIn,longIn,latOut,longOut,fare);
-
-        return users;
     }
+
 
     public boolean insertData(Users user){
 

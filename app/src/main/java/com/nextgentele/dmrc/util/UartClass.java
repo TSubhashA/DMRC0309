@@ -47,7 +47,6 @@ public class UartClass
         Runnable runnable = new Runnable() {
             @Override
             public void run(){
-                pszBuf = new byte[1000];
                 int count = 0;
                 ifEnd = false;
                 while (!ifEnd) {
@@ -63,7 +62,6 @@ public class UartClass
                     count ++;
                     try
                     {
-//						String recvStr = new String(pszBuf).trim();
                         String recvStr = MyUtils.bytes2HexStr1(pszBuf);
                         if( recvStr.length() > 0 ){
                             Log.i( "recv"+count," :"+recvStr );
