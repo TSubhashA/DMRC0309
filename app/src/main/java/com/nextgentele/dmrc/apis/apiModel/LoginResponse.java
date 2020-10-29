@@ -6,50 +6,22 @@ import java.util.List;
 
 public class LoginResponse {
 
-    @SerializedName("statusMessage")
-    private String statusMessage;
+    private int status;
 
+    private String message;
 
-    @SerializedName("statusCode")
-    private int statusCode;
+    private List<LoginResponsePayload> payload;
 
-
-    @SerializedName("responseEntity")
-    private LoginResponseData responseEntity;
-
-    @SerializedName("responseEnties")
-    private String responseEnties;
-
-    public String getStatusMessage() {
-        return statusMessage;
+    public int getStatus() {
+        return status;
     }
 
-    public void setStatusMessage(String statusMessage) {
-        this.statusMessage = statusMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public int getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(int statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public LoginResponseData getResponseEntity() {
-        return responseEntity;
-    }
-
-    public void setResponseEntity(LoginResponseData responseEntity) {
-        this.responseEntity = responseEntity;
-    }
-
-    public String getResponseEnties() {
-        return responseEnties;
-    }
-
-    public void setResponseEnties(String responseEnties) {
-        this.responseEnties = responseEnties;
+    public List<LoginResponsePayload> getPayload() {
+        return payload;
     }
 }
 

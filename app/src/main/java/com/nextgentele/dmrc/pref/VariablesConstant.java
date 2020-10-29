@@ -6,8 +6,8 @@ public class VariablesConstant {
 
     public static final String USER_ID = "USER_ID";
 
-    public static final String ADDRESS_1 = "ADDRESS_1";
-    public static final String ADDRESS_2 = "ADDRESS_2";
+    public static final String EMP_ID = "EMP_ID";
+    public static final String EMP_CODE = "EMP_CODE";
     public static final String CITY = "CITY";
     public static final String STATE = "STATE";
     public static final String PINCODE = "PINCODE";

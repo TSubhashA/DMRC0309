@@ -1,27 +1,22 @@
 package com.nextgentele.dmrc.apis.apiModel;
 
-import com.google.gson.annotations.SerializedName;
+public class MasterRequest {
 
-import java.io.Serializable;
+        String channelId;
+            String tokenId;
+            MasterRequestPayload payload;
 
-public class LoginModule implements Serializable {
-
-
-    int channelId;
-    String tokenId;
-    LoginPayload payload;
-
-    public LoginModule(int channelId, String tokenId, LoginPayload payload) {
+    public MasterRequest(String channelId, String tokenId, MasterRequestPayload payload) {
         this.channelId = channelId;
         this.tokenId = tokenId;
         this.payload = payload;
     }
 
-    public int getChannelId() {
+    public String getChannelId() {
         return channelId;
     }
 
-    public void setChannelId(int channelId) {
+    public void setChannelId(String channelId) {
         this.channelId = channelId;
     }
 
@@ -33,11 +28,11 @@ public class LoginModule implements Serializable {
         this.tokenId = tokenId;
     }
 
-    public LoginPayload getPayload() {
+    public MasterRequestPayload getPayload() {
         return payload;
     }
 
-    public void setPayload(LoginPayload payload) {
+    public void setPayload(MasterRequestPayload payload) {
         this.payload = payload;
     }
 }

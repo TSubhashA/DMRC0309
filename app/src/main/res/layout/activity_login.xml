@@ -31,12 +31,13 @@
                 android:layout_marginTop="@dimen/marginTop">
 
                 <EditText
-                    android:id="@+id/email_input"
+                    android:id="@+id/mobile_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email Id"
+                    android:hint="Mobile"
                     android:singleLine="true"
-                    android:maxLength="40"
+                    android:inputType="phone"
+                    android:maxLength="10"
                     android:textColor="@color/textColor"
                     android:textSize="@dimen/TextSize" />
 

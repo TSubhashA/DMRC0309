@@ -2,7 +2,7 @@ package com.nextgentele.dmrc.apis;
 
 
 public class EndApi extends BaseApi {
-    public static final String LOGIN_USER = "journy";
+    public static final String LOGIN_USER = "driverCondLogin";
     public static final String REGISTER_USER = "register";
     public static final String PROFILE_INFO = "profile_info";
     public static final String UPDATE_PROFILE = "update_info";

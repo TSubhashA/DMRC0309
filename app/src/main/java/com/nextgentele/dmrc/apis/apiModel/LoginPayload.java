@@ -2,28 +2,38 @@ package com.nextgentele.dmrc.apis.apiModel;
 
 public class LoginPayload {
 
-    String userId;
-    String pwd;
+    String mobile;
+    String password;
+    String deviceId;
 
-    public LoginPayload(String userId, String pwd) {
-        this.userId = userId;
-        this.pwd = pwd;
+    public LoginPayload(String mobile, String password, String deviceId) {
+        this.mobile = mobile;
+        this.password = password;
+        this.deviceId = deviceId;
     }
 
-    public String getUserId() {
-        return userId;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPwd() {
-        return pwd;
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public String getMobile() {
+        return mobile;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getDeviceId() {
+        return deviceId;
     }
 }
 

@@ -17,15 +17,6 @@ public interface ApiInterface {
     @POST(EndApi.LOGIN_USER)
     Call<LoginResponse> login(@Body LoginModule loginModule);
 
-////    @POST(EndApi.SOCIALLOGIN)
-////    Call<SocialLoginResponse> GoogleLogin(
-////            @Query("email") String email,
-////            @Query("name") String name,
-////            @Query("provider_id") String provider_id,
-////            @Query("provider") String provider);
-////
-//
-//
-//
+
 
 }
