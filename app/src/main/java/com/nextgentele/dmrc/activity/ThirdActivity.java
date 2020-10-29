@@ -24,6 +24,8 @@ import com.nextgentele.dmrc.util.UartClass;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,12 +39,15 @@ public class ThirdActivity extends AppCompatActivity {
     String latOut = "37.42166666";
     String LongIOut = "122.04578899";
     UartClass uartClass;
+    String sdf="";
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+
+        sdf = getIntent().getStringExtra("qr1123");
 
         uartClass=new UartClass();
 
@@ -76,6 +81,13 @@ public class ThirdActivity extends AppCompatActivity {
             }
 
         }
+
+        //QR Reader
+
+        if (!Objects.equals(sdf, "")){
+            Toast.makeText(this, ""+sdf, Toast.LENGTH_SHORT).show();
+        }
+//
 
         new Handler().postDelayed(new Runnable() {
 

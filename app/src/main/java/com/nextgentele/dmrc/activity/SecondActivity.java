@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.newcapec.czpos.auxlib.utils.MyUtils;
 import com.nextgentele.dmrc.R;
@@ -48,6 +49,7 @@ public class SecondActivity extends AppCompatActivity {
 
         users= (Users) getIntent().getSerializableExtra("user");
 
+
         if (users!=null){
         availableBalance.setText("INR "+ users.getUserBal());
 
@@ -73,12 +75,14 @@ public class SecondActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                String res="Pass";
                 if (ResponseReceived.pszBuf== res.getBytes()){
                 Intent intent=new Intent(SecondActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();}else
-                {}
+                {
+                    Intent intent=new Intent(SecondActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }
 
             }
         }, 4000);
