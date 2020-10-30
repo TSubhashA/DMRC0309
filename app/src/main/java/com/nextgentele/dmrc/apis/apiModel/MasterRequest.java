@@ -2,21 +2,21 @@ package com.nextgentele.dmrc.apis.apiModel;
 
 public class MasterRequest {
 
-        String channelId;
+        int channelId;
             String tokenId;
             MasterRequestPayload payload;
 
-    public MasterRequest(String channelId, String tokenId, MasterRequestPayload payload) {
+    public MasterRequest(int channelId, String tokenId, MasterRequestPayload payload) {
         this.channelId = channelId;
         this.tokenId = tokenId;
         this.payload = payload;
     }
 
-    public String getChannelId() {
+    public int getChannelId() {
         return channelId;
     }
 
-    public void setChannelId(String channelId) {
+    public void setChannelId(int channelId) {
         this.channelId = channelId;
     }
 

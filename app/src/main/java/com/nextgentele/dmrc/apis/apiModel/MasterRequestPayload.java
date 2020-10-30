@@ -3,7 +3,7 @@ package com.nextgentele.dmrc.apis.apiModel;
 public class MasterRequestPayload {
 
      String mobile;
-             String deviceId;
+     String deviceId;
 
     public MasterRequestPayload(String mobile, String deviceId) {
         this.mobile = mobile;

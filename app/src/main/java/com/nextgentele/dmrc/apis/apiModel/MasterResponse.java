@@ -5,9 +5,9 @@ import java.util.List;
 public class MasterResponse {
 
 
-        int status;
-            String message;
-            List<MasterResponsePayload> payload;
+    int status;
+    String message;
+    List<MasterResponsePayload> payload;
 
     public int getStatus() {
         return status;

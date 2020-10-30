@@ -19,13 +19,19 @@ import com.nextgentele.dmrc.R;
 import com.nextgentele.dmrc.apis.ApiClient;
 import com.nextgentele.dmrc.apis.ApiInterface;
 import com.nextgentele.dmrc.apis.apiModel.LoginModule;
+import com.nextgentele.dmrc.apis.apiModel.LoginPayload;
 import com.nextgentele.dmrc.apis.apiModel.LoginResponse;
 import com.nextgentele.dmrc.apis.apiModel.LoginResponsePayload;
+import com.nextgentele.dmrc.apis.apiModel.MasterRequest;
+import com.nextgentele.dmrc.apis.apiModel.MasterRequestPayload;
+import com.nextgentele.dmrc.apis.apiModel.MasterResponse;
+import com.nextgentele.dmrc.constants.Constants;
 import com.nextgentele.dmrc.pref.AppPreferences;
 import com.nextgentele.dmrc.pref.VariablesConstant;
 import com.nextgentele.dmrc.service.MyService;
 import com.nextgentele.dmrc.util.CheckPermission;
 import com.nextgentele.dmrc.util.ConnectionDetector;
+import com.nextgentele.dmrc.util.PermissionManagerUtil;
 
 import java.util.List;
 
@@ -41,8 +47,10 @@ public class LoginActivity extends AppCompatActivity {
 
     ConnectionDetector cd;
     ApiInterface apiInterface;
+    PermissionManagerUtil pm;
 
     LoginModule loginModule;
+    MasterRequest masterRequest;
 
     private static final int GPS_PERMISSION = 100;
     private static final int STORAGE_PERMISSION = 101;
@@ -61,6 +69,11 @@ public class LoginActivity extends AppCompatActivity {
         pswET = findViewById(R.id.password_input);
 
         cd=new ConnectionDetector(this);
+        pm=new PermissionManagerUtil(this);
+
+        Constants.ipAddress = pm.getLocalIpAddress();
+
+        Constants.imei = pm.showPhoneStatePermission();
 
         btn = findViewById(R.id.loginbtn);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +104,26 @@ public class LoginActivity extends AppCompatActivity {
                                         if (loginResponse.getMessage().equals("Login Successful")) {
                                             AppPreferences.setAppPrefrences(VariablesConstant.EMP_CODE, loginResponsePayload.get(0).getEmpCode(), LoginActivity.this);
                                             AppPreferences.setAppPrefrences(VariablesConstant.MOBILE, loginResponsePayload.get(0).getMobile(), LoginActivity.this);
+                                            loadData1();
+                                            Call<MasterResponse> call1=apiInterface.getMaster(masterRequest);
+                                            call1.enqueue(new Callback<MasterResponse>() {
+                                                @Override
+                                                public void onResponse(Call<MasterResponse> call, Response<MasterResponse> response) {
+                                                    if (response.code()==200){
+                                                        MasterResponse masterResponse=response.body();
+
+                                                    }
+
+
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<MasterResponse> call, Throwable t) {
+
+                                                }
+                                            });
+
+
                                             progressdialog.dismiss();
                                             Intent intent = new Intent(LoginActivity.this, RouteActivity.class);
                                             startActivity(intent);
@@ -149,7 +182,33 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private void loadData1() {
+        int channelId=1;
+        String tokenId="tokn1234";
+
+        String mobile=AppPreferences.getAppPrefrences(VariablesConstant.MOBILE,this);
+        String deviceId=pm.showPhoneStatePermission();
+
+        MasterRequestPayload payload=new MasterRequestPayload(mobile,deviceId);
+
+        masterRequest =new MasterRequest(channelId,tokenId,payload);
+
+    }
+
     private void loadData() {
+
+        int channelId=1;
+        String tokenId="tok1234";
+
+        String mobile=mobileET.getText().toString().trim();
+        String password=pswET.getText().toString();
+        String deviceId= pm.showPhoneStatePermission();
+
+        LoginPayload payload=new LoginPayload(mobile,password,deviceId);
+
+        loginModule=new LoginModule(channelId,tokenId,payload);
+
+
     }
 
 

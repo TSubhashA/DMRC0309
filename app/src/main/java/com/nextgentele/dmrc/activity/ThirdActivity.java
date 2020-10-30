@@ -68,7 +68,7 @@ public class ThirdActivity extends AppCompatActivity {
             myDb.update(users.getUserName(), dateTimeOut, latOut, LongIOut, charge);
             currentBalance.setText("INR " + users.getUserBal());
             fromTo.setText("Fare deducted from " + from + " to " + to);
-            sendData(users.getUserName());
+//            sendData(users.getUserName());
             charges.setText("INR " + charge);
             double bal = users.getUserBal() - charge;
             finalBalance.setText("INR " + bal);
@@ -112,51 +112,51 @@ public class ThirdActivity extends AppCompatActivity {
                 Toast.makeText(this, "Internet access", Toast.LENGTH_SHORT).show();
 
 
-                LoginModule loginModule = new LoginModule(users.getUserName(), users.getDateTimeIn(), users.getDatetimeOut(), users.getLatIn(), users.getLongIn(), users.getLatOut(), users.getLongOut(), users.getFare());
-
-
-                Gson gson = new Gson();
-                String json = gson.toJson(loginModule);
-                LoginModule deserialized = gson.fromJson(json, LoginModule.class);
-
-                ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-
-                Call<LoginResponse> call = apiInterface.login(deserialized);
-
-                call.enqueue(new Callback<LoginResponse>() {
-                    @Override
-                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        Log.i("onResponse", "" + response);
-                        if (response.code() == 200) {
-                            LoginResponse loginResponse = response.body();
-                            Toast.makeText(ThirdActivity.this, ""+loginModule, Toast.LENGTH_SHORT).show();
-                            assert loginResponse != null;
-                            if (loginResponse.getStatusCode() == 200) {
-                                int result = myDb.deleteUser(loginResponse.getResponseEntity().getCardId());
-                                Log.i("Delete","User");
-                                if (result > 0) {
-                                    Log.i("ThirdActivity", "Deleted Data");
-                                    Toast.makeText(ThirdActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                                    uartClass.init();
-                                    uartClass.uart_open();
-                                    uartClass.uart_send("GO10");
-                                }
-
-//                                Log.i("Api response",""+jsonObject);
-//                                Toast.makeText(ThirdActivity.this, ""+jsonObject, Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<LoginResponse> call, Throwable t) {
-
-                        Log.i("Failure",t.getCause().toString());
-
-
-                    }
-                });
+//                LoginModule loginModule = new LoginModule(users.getUserName(), users.getDateTimeIn(), users.getDatetimeOut(), users.getLatIn(), users.getLongIn(), users.getLatOut(), users.getLongOut(), users.getFare());
+//
+//
+//                Gson gson = new Gson();
+//                String json = gson.toJson(loginModule);
+//                LoginModule deserialized = gson.fromJson(json, LoginModule.class);
+//
+//                ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+//
+//                Call<LoginResponse> call = apiInterface.login(deserialized);
+//
+//                call.enqueue(new Callback<LoginResponse>() {
+//                    @Override
+//                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+//                        Log.i("onResponse", "" + response);
+//                        if (response.code() == 200) {
+//                            LoginResponse loginResponse = response.body();
+//                            Toast.makeText(ThirdActivity.this, ""+loginModule, Toast.LENGTH_SHORT).show();
+//                            assert loginResponse != null;
+//                            if (loginResponse.getStatusCode() == 200) {
+//                                int result = myDb.deleteUser(loginResponse.getResponseEntity().getCardId());
+//                                Log.i("Delete","User");
+//                                if (result > 0) {
+//                                    Log.i("ThirdActivity", "Deleted Data");
+//                                    Toast.makeText(ThirdActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
+//                                    uartClass.init();
+//                                    uartClass.uart_open();
+//                                    uartClass.uart_send("GO10");
+//                                }
+//
+////                                Log.i("Api response",""+jsonObject);
+////                                Toast.makeText(ThirdActivity.this, ""+jsonObject, Toast.LENGTH_SHORT).show();
+//
+//                            }
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<LoginResponse> call, Throwable t) {
+//
+//                        Log.i("Failure",t.getCause().toString());
+//
+//
+//                    }
+//                });
 
             }
 
