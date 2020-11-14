@@ -1,19 +1,9 @@
 package com.nextgentele.dmrc.apis.apiModel;
 
-public class LoginResponsePayload {
+import com.nextgentele.dmrc.roomdb.tables.DriverDetails;
 
-     String userId;
-             String empCode;
-             String firstName;
-             String lastName;
-             String role;
-             String depotId;
-             String depotName;
-             String busAssigned;
-             String emaild;
-             String mobile;
-             String status;
-             String mpin;
+public class LoginResponsePayload extends DriverDetails {
+
 
     public String getUserId() {
         return userId;

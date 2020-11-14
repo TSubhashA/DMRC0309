@@ -2,21 +2,22 @@ package com.nextgentele.dmrc.roomdb.tables;
 
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "route_master")
+@Entity(tableName = "route_master", indices = @Index(value = {"routeNo"}, unique = true))
 public class RouteMaster {
 
-            @PrimaryKey
-            public int routeId;    // NOT NULL AUTO_INCREMENT,
+    @PrimaryKey(autoGenerate = true)
+    public int id;    // NOT NULL AUTO_INCREMENT,
 
-  public String routeNumber;
-
-    public String routeDesc;
+    public String routeNo;
 
     public String srcStation;
 
     public String destStation;
+
+    public String routeDesc;
 
     public int noOfStops;
 

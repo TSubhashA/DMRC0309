@@ -9,8 +9,8 @@ import com.nextgentele.dmrc.roomdb.tables.TripDetails;
 
 @Dao
 public interface TripsDetailsDao {
-
     @Insert
     public void addTrips(TripDetails tripDetails);
+
 
 }

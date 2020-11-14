@@ -1,13 +1,12 @@
 package com.nextgentele.dmrc.apis.apiModel;
 
+import com.nextgentele.dmrc.roomdb.tables.RouteMaster;
+
 import java.util.List;
 
-public class RoutesList {
+public class RoutesList extends RouteMaster {
 
-    String routeNo;
-           String srcStation;
-            String destStation;
-            List<StopsList> stops;
+    public List<StopsList> stops;
 
     public String getSrcStation() {
         return srcStation;

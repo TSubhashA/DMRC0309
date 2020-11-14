@@ -28,11 +28,15 @@ import com.nextgentele.dmrc.apis.apiModel.MasterResponse;
 import com.nextgentele.dmrc.constants.Constants;
 import com.nextgentele.dmrc.pref.AppPreferences;
 import com.nextgentele.dmrc.pref.VariablesConstant;
+import com.nextgentele.dmrc.roomdb.AppDatabase;
+import com.nextgentele.dmrc.roomdb.tables.DriverDetails;
+import com.nextgentele.dmrc.roomdb.tables.RouteMaster;
 import com.nextgentele.dmrc.service.MyService;
 import com.nextgentele.dmrc.util.CheckPermission;
 import com.nextgentele.dmrc.util.ConnectionDetector;
 import com.nextgentele.dmrc.util.PermissionManagerUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -49,8 +53,15 @@ public class LoginActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     PermissionManagerUtil pm;
 
+    DriverDetails driverDetails;
+    List<RouteMaster> routeMasterList;
+
     LoginModule loginModule;
     MasterRequest masterRequest;
+
+
+    AppDatabase appDatabase;
+
 
     private static final int GPS_PERMISSION = 100;
     private static final int STORAGE_PERMISSION = 101;
@@ -71,6 +82,8 @@ public class LoginActivity extends AppCompatActivity {
         cd=new ConnectionDetector(this);
         pm=new PermissionManagerUtil(this);
 
+
+      //  appDatabaseClient.getAppDatabase().driverDao().addDriver();
         Constants.ipAddress = pm.getLocalIpAddress();
 
         Constants.imei = pm.showPhoneStatePermission();
@@ -102,7 +115,16 @@ public class LoginActivity extends AppCompatActivity {
                                     if (loginResponse.getStatus() == 200) {
                                         List<LoginResponsePayload> loginResponsePayload = loginResponse.getPayload();
                                         if (loginResponse.getMessage().equals("Login Successful")) {
+
+                                            appDatabase=AppDatabase.getAppDatabase(LoginActivity.this);
+
+                                            driverDetails= loginResponse.getPayload().get(0);
+                                            appDatabase.driverDao().addDriver(driverDetails);
+                                            Toast.makeText(LoginActivity.this, "DriverData Added", Toast.LENGTH_SHORT).show();
+
+
                                             AppPreferences.setAppPrefrences(VariablesConstant.EMP_CODE, loginResponsePayload.get(0).getEmpCode(), LoginActivity.this);
+
                                             AppPreferences.setAppPrefrences(VariablesConstant.MOBILE, loginResponsePayload.get(0).getMobile(), LoginActivity.this);
                                             loadData1();
                                             Call<MasterResponse> call1=apiInterface.getMaster(masterRequest);
@@ -111,6 +133,19 @@ public class LoginActivity extends AppCompatActivity {
                                                 public void onResponse(Call<MasterResponse> call, Response<MasterResponse> response) {
                                                     if (response.code()==200){
                                                         MasterResponse masterResponse=response.body();
+                                                        if (masterResponse.getStatus()==200) {
+
+                                                            routeMasterList=new ArrayList<>();
+
+                                                            for (int i=0;i<masterResponse.getPayload().get(0).getRoutes().size();i++){
+                                                                RouteMaster routeMaster;
+                                                            routeMaster=masterResponse.getPayload().get(0).getRoutes().get(i);
+                                                            Log.i("ErorDB",String.valueOf(routeMaster));
+                                                            routeMasterList.add(routeMaster);
+                                                            }
+                                                            appDatabase.RouteMasterDao().addRoutes(routeMasterList);
+
+                                                        }
 
                                                     }
 
