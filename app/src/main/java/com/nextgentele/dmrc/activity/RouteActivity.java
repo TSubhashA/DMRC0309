@@ -25,8 +25,7 @@ public class RouteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_route);
-
+        setContentView(R.layout.activity_route);  
         submmit=findViewById(R.id.submitbtn);
         spinner=findViewById(R.id.spinner1);
         appDatabase=AppDatabase.getAppDatabase(this);
