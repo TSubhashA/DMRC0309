@@ -20,6 +20,159 @@
         android:layout_marginLeft="@dimen/margin_left_right"
         android:layout_marginTop="@dimen/marginTop"
         android:layout_marginRight="@dimen/margin_left_right"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:layout_margin="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bus "
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize"
+              android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text=":"
+                android:textColor="@color/textColor"
+                android:gravity="center"
+                android:textSize="@dimen/TextSize"
+                android:layout_marginEnd="10dp"/>
+
+            <TextView
+                android:id="@+id/bus_activity_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="DL10BP4611"
+
+                android:textSize="@dimen/TextSize"
+                android:textColor="@color/textColor"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Depot "
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text=" : "
+                android:textColor="@color/textColor"
+                android:gravity="center"
+                android:textSize="@dimen/TextSize" />
+
+            <TextView
+                android:id="@+id/depot_activity_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="SN Depot"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize" />
+        </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Route No. "
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_marginEnd="10dp"
+                android:text=":"
+                android:textColor="@color/textColor"
+                android:gravity="center"
+                android:textSize="@dimen/TextSize" />
+
+            <TextView
+                android:id="@+id/routno_activity_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="726"
+
+                android:textSize="@dimen/TextSize"
+                android:textColor="@color/textColor"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:weightSum="2"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From "
+               android:layout_marginEnd="10dp"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize"/>
+
+            <TextView
+                android:id="@+id/source_activity_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Dwarka"
+android:layout_marginEnd="10dp"
+                android:textSize="@dimen/TextSize"
+                android:textColor="@color/textColor"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To "
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize"/>
+
+            <TextView
+                android:id="@+id/des_activity_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Janakpuri"
+
+                android:textSize="@dimen/TextSize"
+                android:textColor="@color/textColor"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginTop"
+        android:layout_marginTop="@dimen/marginTop"
+        android:layout_marginRight="@dimen/marginTop"
         android:weightSum="2">
 
         <TextView
@@ -55,9 +208,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginLeft="@dimen/marginTop"
         android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginRight="@dimen/margin_left_right"
+        android:layout_marginRight="@dimen/marginTop"
         android:weightSum="2">
 
         <TextView
@@ -95,9 +248,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginLeft="@dimen/marginTop"
         android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginRight="@dimen/margin_left_right"
+        android:layout_marginRight="@dimen/marginTop"
         android:weightSum="2">
 
         <TextView
@@ -134,9 +287,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_left_right"
+        android:layout_marginLeft="@dimen/marginTop"
         android:layout_marginTop="@dimen/marginTop"
-        android:layout_marginRight="@dimen/margin_left_right"
+        android:layout_marginRight="@dimen/marginTop"
         android:weightSum="2">
 
         <TextView

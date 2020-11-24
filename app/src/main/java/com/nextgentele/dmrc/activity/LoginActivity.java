@@ -125,7 +125,10 @@ public class LoginActivity extends AppCompatActivity {
 
                                             AppPreferences.setAppPrefrences(VariablesConstant.EMP_CODE, loginResponsePayload.get(0).getEmpCode(), LoginActivity.this);
 
+                                            AppPreferences.setAppPrefrences(VariablesConstant.BUS,loginResponsePayload.get(0).getBusAssigned(),LoginActivity.this);
+                                            AppPreferences.setAppPrefrences(VariablesConstant.DEPOT,loginResponsePayload.get(0).getDepotName(),LoginActivity.this);
                                             AppPreferences.setAppPrefrences(VariablesConstant.MOBILE, loginResponsePayload.get(0).getMobile(), LoginActivity.this);
+
                                             loadData1();
                                             Call<MasterResponse> call1=apiInterface.getMaster(masterRequest);
                                             call1.enqueue(new Callback<MasterResponse>() {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -20,7 +21,7 @@ public class RouteActivity extends AppCompatActivity {
 
     Button submmit;
     AppDatabase appDatabase;
-    Spinner spinner;
+    Spinner spinner, frSpinner, toSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,31 @@ public class RouteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_route);  
         submmit=findViewById(R.id.submitbtn);
         spinner=findViewById(R.id.spinner1);
+        frSpinner=findViewById(R.id.spinner2);
+        toSpinner=findViewById(R.id.spinner3);
         appDatabase=AppDatabase.getAppDatabase(this);
          loadSpinnerData();
-         spinner.getSelectedItem();
 
         submmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(RouteActivity.this,MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }
@@ -46,6 +63,8 @@ public class RouteActivity extends AppCompatActivity {
         List<RouteMaster> routes=appDatabase.RouteMasterDao().getList();
         List<String> labels = new ArrayList<>();
 
+        String r1="Select the Trip";
+        labels.add(r1);
         for (RouteMaster route:routes )
         {
             String rm=route.id+" - "+route.routeNo+" - "+route.srcStation+" - "+route.destStation;

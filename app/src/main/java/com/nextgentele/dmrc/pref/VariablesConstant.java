@@ -8,12 +8,12 @@ public class VariablesConstant {
 
     public static final String EMP_ID = "EMP_ID";
     public static final String EMP_CODE = "EMP_CODE";
-    public static final String CITY = "CITY";
-    public static final String STATE = "STATE";
-    public static final String PINCODE = "PINCODE";
+    public static final String SOURCE = "SOURCE";
+    public static final String DESTINATION = "DESTINATION";
+    public static final String ROUTE_NO = "Route_No";
 
-    public static final String USER_FIRSTNAME = "USER_FIRSTNAME";
-    public static final String USER_LASTNAME = "USER_LASTNAME";
+    public static final String BUS = "BUS";
+    public static final String DEPOT = "DEPOT";
 
     public static final String USER_EMAIL = "USER_EMAIL";
 
