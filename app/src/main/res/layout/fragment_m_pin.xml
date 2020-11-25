@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.MPinFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+             android:orientation="vertical"
+             android:layout_marginTop="@dimen/marginTop">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Select an option : "
+                 android:layout_marginBottom="@dimen/marginTop"
+                 android:textColor="@color/textColor"
+                 android:textSize="@dimen/TextSize"/>
+             <RadioGroup
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:gravity="center"
+                 android:id="@+id/rdgroup_mpin_frgm"
+
+                 android:orientation="horizontal">
+
+                 <androidx.appcompat.widget.AppCompatRadioButton
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/customerid_radio_mpin_frgm"
+                     android:layout_marginEnd="@dimen/marginTop"
+                     android:text="Employee ID"
+                     android:textColor="@color/textColor"
+                     android:textSize="@dimen/TextSize"
+                     android:checked="true"/>
+                 <androidx.appcompat.widget.AppCompatRadioButton
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/mobile_radio_mpin_frgm"
+                     android:text="Registered Mobile"
+                     android:layout_marginStart="@dimen/marginTop"
+                     android:textColor="@color/textColor"
+                     android:textSize="@dimen/TextSize"
+                     />
+             </RadioGroup>
+
+         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="@dimen/marginTop">
+
+            <EditText
+                android:id="@+id/id_input_mpin_frgm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Customer ID"
+                android:singleLine="true"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="@dimen/marginTop">
+
+            <EditText
+                android:id="@+id/mpin_input_mpin_frgm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mpin"
+                android:singleLine="true"
+                android:maxLength="40"
+                android:inputType="textPassword"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/TextSize" />
+
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_left_right"
+            android:layout_marginRight="@dimen/margin_left_right"
+            android:layout_marginTop="40dp">
+
+            <Button
+                android:id="@+id/loginbtn_id_frgm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/button_border"
+                android:text="Login"
+                android:textColor="@color/bottonText"
+                android:textSize="@dimen/TextSize" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

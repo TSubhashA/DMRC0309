@@ -14,8 +14,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.tabs.TabLayout;
 import com.nextgentele.dmrc.R;
+
+import com.nextgentele.dmrc.adapter.MyAdapter;
 import com.nextgentele.dmrc.apis.ApiClient;
 import com.nextgentele.dmrc.apis.ApiInterface;
 import com.nextgentele.dmrc.apis.apiModel.LoginModule;
@@ -46,8 +50,8 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     Button btn;
-
-    EditText mobileET, pswET;
+    TabLayout tabLayout;
+    ViewPager viewPager;
 
     ConnectionDetector cd;
     ApiInterface apiInterface;
@@ -76,19 +80,41 @@ public class LoginActivity extends AppCompatActivity {
 
         checkPermission = new CheckPermission(this);
 
-        mobileET = findViewById(R.id.mobile_input);
-        pswET = findViewById(R.id.password_input);
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout.addTab(tabLayout.newTab().setText("Login ID"));
+        tabLayout.addTab(tabLayout.newTab().setText("mPin"));
+
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final MyAdapter adapter = new MyAdapter(this,getSupportFragmentManager(),
+                tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
 
         cd=new ConnectionDetector(this);
         pm=new PermissionManagerUtil(this);
 
 
-      //  appDatabaseClient.getAppDatabase().driverDao().addDriver();
+
         Constants.ipAddress = pm.getLocalIpAddress();
 
         Constants.imei = pm.showPhoneStatePermission();
 
-        btn = findViewById(R.id.loginbtn);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

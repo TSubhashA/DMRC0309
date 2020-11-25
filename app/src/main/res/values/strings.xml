@@ -7,10 +7,10 @@
     <string name="Route_prompt">Choose a Route</string>
 
     <string-array name="Routes">
-    <item>Route 1 Dwarka - Janakpuri</item>
-    <item>Route 2 Janakpuri - Dwarka</item>
-    <item>Route 3 Noida - Kapashera</item>
-    <item>Route 4 Kapashera - Noida</item>
+        <item>Route 1 Dwarka - Janakpuri</item>
+        <item>Route 2 Janakpuri - Dwarka</item>
+        <item>Route 3 Noida - Kapashera</item>
+        <item>Route 4 Kapashera - Noida</item>
     </string-array>
 
     <string name="station_prompt">Select Station</string>
@@ -19,4 +19,6 @@
         <item>Dwarka </item>
         <item>Janakpuri</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

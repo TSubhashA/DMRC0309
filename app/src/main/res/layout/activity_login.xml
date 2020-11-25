@@ -19,127 +19,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <include layout="@layout/header_file"/>
 
             </LinearLayout>
 
-            <LinearLayout
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="@dimen/marginTop">
+                android:background="#1db995">
 
-                <EditText
-                    android:id="@+id/mobile_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Driver ID"
-                    android:singleLine="true"
-                    android:inputType="phone"
-                    android:maxLength="10"
-                    android:textColor="@color/textColor"
-                    android:textSize="@dimen/TextSize" />
+            </com.google.android.material.tabs.TabLayout>
 
-
-            </LinearLayout>
-
-            <LinearLayout
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="@dimen/marginTop">
-
-                <EditText
-                    android:id="@+id/password_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="MPIN"
-                    android:singleLine="true"
-                    android:maxLength="40"
-                    android:inputType="textPassword"
-                    android:textColor="@color/textColor"
-                    android:textSize="@dimen/TextSize" />
+                android:layout_below="@id/tabLayout"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="100dp"
+                tools:layout_editor_absoluteX="8dp" />
 
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp">
-
-                <CheckBox
-                    android:id="@+id/show_hide_checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Show Password"
-                    android:textColor="@color/textColor"
-                    android:textSize="15sp"
-                    tools:ignore="HardcodedText" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="@dimen/marginTop">
-
-                <TextView
-                    android:id="@+id/forgot_pswd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="Forgot Password?"
-                    android:textColor="@color/textColor"
-                    android:textSize="15sp" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_left_right"
-                android:layout_marginRight="@dimen/margin_left_right"
-                android:layout_marginTop="10dp">
-
-                <Button
-                    android:id="@+id/loginbtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:background="@drawable/button_border"
-                    android:text="Login"
-                    android:textColor="@color/bottonText"
-                    android:textSize="@dimen/TextSize" />
-            </LinearLayout>
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginLeft="50dp"-->
-            <!--                android:layout_marginRight="50dp"-->
-            <!--                android:layout_marginTop="@dimen/marginTop">-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/new_user_signup"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:text="New User? Sign Up"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textColor="@color/textColor"-->
-            <!--                    android:textSize="18sp" />-->
-
-
-            <!--            </LinearLayout>-->
 
 
 
